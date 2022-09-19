@@ -1,8 +1,11 @@
-export interface INote {
-    id:number;
+export interface IBaseNote {
     title: string;
     description: string;
-    category:string;
+    category: string;
+}
+
+export interface INote extends IBaseNote {
+    id: number;
     isArchived: boolean;
-    dates: string [];
+    date: string;
 }
