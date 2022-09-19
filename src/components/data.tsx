@@ -1,5 +1,5 @@
-import { INote } from '../Interfaces';
-const dates: string[] = [new Date().toLocaleDateString()];
+import { INote } from "../Interfaces";
+const date: string = new Date().toString();
 
 export const defaultNotes: INote[] = [
     {
@@ -8,7 +8,7 @@ export const defaultNotes: INote[] = [
         "description": "Description 1",
         "category": "Task",
         "isArchived": false,
-        "dates": dates
+        "date": date
     },
     {
         "id": 2,
@@ -16,7 +16,7 @@ export const defaultNotes: INote[] = [
         "description": "Description 2",
         "category": "Task",
         "isArchived": true,
-        "dates": dates
+        "date": date
     },
     {
         "id": 3,
@@ -24,15 +24,15 @@ export const defaultNotes: INote[] = [
         "description": "Description Random Thought 1",
         "category": "Random Thought",
         "isArchived": false,
-        "dates": dates
+        "date": date
     },
     {
         "id": 4,
         "isArchived": false,
-        "title": "Updated Random Thought 2",
+        "title": "Random Thought 2",
         "description": "Description Random Thought 2",
         "category": "Random Thought",
-        "dates": dates
+        "date": date
        
        
     },
@@ -42,7 +42,7 @@ export const defaultNotes: INote[] = [
         "description": "Description Idea 1",
         "category": "Idea",
         "isArchived": false,
-        "dates": dates
+        "date": date
     },
     {
         "id": 6,
@@ -50,7 +50,7 @@ export const defaultNotes: INote[] = [
         "description": "Description Idea 2",
         "category": "Idea",
         "isArchived": false,
-        "dates": dates
+        "date": date
     },
     {
         "id": 7,
@@ -58,14 +58,6 @@ export const defaultNotes: INote[] = [
         "description": "Description Quote",
         "category": "Quote",
         "isArchived": false,
-        "dates": dates
-    },
-    {
-        "id": 50,
-        "isArchived": false,
-        "dates":dates,
-        "title": "New Idea",
-        "description": "new Test Idea",
-        "category": "Idea"
+        "date": date
     }
 ]

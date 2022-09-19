@@ -195,12 +195,7 @@ margin-left: 0px;
   height: 20px;
   margin-left: 80px;;
 }
-.date_picker{
-  margin-left: 450px;
-  margin-bottom: 20px;
-  height: 30px;
-  text-align: center;
-}
+
 
 .title {
 width: 175px;
@@ -223,7 +218,7 @@ text-align: center;
 width: 110px;
 text-align: center;
 }
-.note_categoty{
+.note_category{
 width: 420px;
 text-align: center;
 }
@@ -241,4 +236,16 @@ display: block;
 .datesPicker{
 margin-left: 400px;
 margin-bottom: 10px;
+}
+.note_category{
+  width:450px ;
+  text-align: center;
+}
+.active__note{
+  width: 200px;
+  text-align: center;
+}
+.archived__note{
+  width: 280px;
+  text-align: center;
 }
