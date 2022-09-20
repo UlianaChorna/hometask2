@@ -30,31 +30,36 @@ const getCategoryIcon = (category: string) => {
   }
 }
 
+const dateRegex = /\d{2}(\D)\d{2}\1\d{4}/g;
 
 const NoteTask = ({ note, deleteTask, archiveNote, editForm }: Props) => {
   const categoryIcon = getCategoryIcon(note.category);
   let date = new Date(note.date).toLocaleDateString();
-  let str = note.description;
-  let res = str.match(/\d{2}([ /.-])\d{2}\1\d{4}/g);
+  let res: string[] | null = note.description.match(dateRegex);
+  let formattedDate = !res
+    ? ""
+    : res.length === 1
+      ? res
+      : res[res.length - 2] + " : " + res[res.length - 1];
   return (
-    <Table className="note">
+    <Table className = "note">
       <tbody>
-        <tr className="details">
+        <tr className = "details">
           <td>{categoryIcon}</td>
-          <td className="title">{note.title}</td>
-          <td className="date"> {date}  </td>
-          <td className="categories"> {note.category}</td>
-          <td className="content">{note.description}</td>
-          <td className="dates" > {res}</td>
-          <td onClick={() => {
+          <td className = "title">{note.title}</td>
+          <td className = "date"> {date}  </td>
+          <td className = "categories"> {note.category}</td>
+          <td className = "content">{note.description}</td>
+          <td className = "dates" > {formattedDate}</td>
+          <td onClick = {() => {
             editForm(note.id)
-          }} className="edit"><BsFillPencilFill /></td>
-          <td onClick={() => {
+          }} className = "edit"><BsFillPencilFill /></td>
+          <td onClick = {() => {
             archiveNote(note.id)
           }} className="archived"><BiArchiveIn /></td>
-          <td onClick={() => {
+          <td onClick = {() => {
             deleteTask(note.id)
-          }} className="delete"><AiFillDelete /></td>
+          }} className = "delete"><AiFillDelete /></td>
         </tr>
       </tbody>
     </Table>
@@ -62,5 +67,3 @@ const NoteTask = ({ note, deleteTask, archiveNote, editForm }: Props) => {
 };
 
 export default NoteTask;
-
-
