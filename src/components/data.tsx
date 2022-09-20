@@ -32,9 +32,7 @@ export const defaultNotes: INote[] = [
         "title": "Random Thought 2",
         "description": "Description Random Thought 2",
         "category": "Random Thought",
-        "date": date
-       
-       
+        "date": date     
     },
     {
         "id": 5,

@@ -99,21 +99,21 @@ const App: FC = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="App">
-      <ButtonGroup className="mb-2">
+    <div className = "App">
+      <ButtonGroup className = "mb-2">
         <ToggleButton
-          id="toggle-check"
-          type="checkbox"
-          variant="secondary"
-          checked={showArchived}
-          value="1"
-          onChange={(e) => setShowArchived(e.currentTarget.checked)}>
+          id = "toggle-check"
+          type = "checkbox"
+          variant = "secondary"
+          checked = {showArchived}
+          value = "1"
+          onChange = {(e) => setShowArchived(e.currentTarget.checked)}>
           Archived
         </ToggleButton>
       </ButtonGroup>
 
       <Table>
-        <tbody className="table-title">
+        <tbody className = "table-title">
           <tr>
             <td>Name</td>
             <td>Created</td>
@@ -131,98 +131,104 @@ const App: FC = () => {
           .map((note: INote, key: number) => {
             return (
               <NoteTask
-                key={key}
-                note={note}
-                deleteTask={deleteTask}
-                archiveNote={archiveNote}
-                editNote={editNote}
-                editForm={editForm} />
+                key = {key}
+                note = {note}
+                deleteTask = {deleteTask}
+                archiveNote = {archiveNote}
+                editNote = {editNote}
+                editForm = {editForm} />
             )
           })}
       </div>
-      <div id="notesWrapper">
-        <div className="add-box">
+      <div id = "notesWrapper">
+        <div className = "add-box">
           <button
             data-form
-            className="btn btn_white "
-            onClick={handleShow} >
+            className = "btn btn_white "
+            onClick = {handleShow} >
             New Note
           </button>
         </div>
       </div>
       <Modal
-        show={show}
-        onHide={handleClose}
-        className="form-content">
+        show = {show}
+        onHide = {handleClose}
+        className = "form-content">
+          <div className = "modal_window">
         <Modal.Body>
           <Form >
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label className="form__title"> Title </Form.Label>
+            <Form.Group 
+            controlId = "exampleForm.ControlInput1" 
+            className = "form__title">
+              <Form.Label > Title </Form.Label>
               <Form.Control
-                type="text"
-                onChange={handleChange}
-                value={baseNote.title}
-                name="title"
-                className="title_add"
-                placeholder="Add a task"
+                type = "text"
+                onChange = {handleChange}
+                value = {baseNote.title}
+                name = "title"
+                className = "title_add"
+                placeholder = "Add a task"
                 required
               />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label className="form__title"> Description </Form.Label>
+            </Form.Group >
+            <Form.Group 
+            className = "form__title">
+              <Form.Label > Description </Form.Label>
               <Form.Control
-                type="text"
-                name="description"
-                onChange={handleChange}
-                value={baseNote.description}
-                className="description"
-                placeholder="Description"
+                type = "text"
+                name = "description"
+                onChange = {handleChange}
+                value = {baseNote.description}
+                className = "description"
+                placeholder = "Description"
                 required />
             </Form.Group>
           </Form>
           <Form.Group
-            controlId="formBasicSelect">
+            controlId = "formBasicSelect">
             <Form.Control
-              as="select"
-              value={baseNote.category}
-              onChange={e => {
+              as = "select"
+              value = {baseNote.category}
+              onChange = {e => {
                 setBaseNote((previous) => ({...previous, category: e.target.value}));
               }}
-              className="category">
-              <option value="Task" >Task</option>
-              <option value="Idea" >Idea</option>
-              <option value="Quote" >Quote</option>
-              <option value="Random Thought" >Random Thought</option>
+              className = "category">
+              <option value = "Task" >Task</option>
+              <option value = "Idea" >Idea</option>
+              <option value = "Quote" >Quote</option>
+              <option value = "Random Thought" >Random Thought</option>
             </Form.Control>
           </Form.Group>
         </Modal.Body>
+        </div>
         <Modal.Footer>
 
           <Button
-            variant="primary"
-            onClick={submitForm}
-            className="btn_submit" >
+            variant = "primary"
+            onClick = {submitForm}
+            className = "btn_submit" >
             {noteId ? "Update" : "Add"}
           </Button >
 
           <Button
-            variant="secondary"
-            onClick={handleClose}
-            className="btn_submit" >
+            variant = "secondary"
+            onClick = {handleClose}
+            className = "btn_submit_close" >
             Close
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <Table className="table_category">
-        <tbody className="table-title">
+      <Table className = "table_category">
+        <tbody className = "table-title">
           <tr>
             <td>Note Category</td>
             <td>Active</td>
             <td>Archived</td>
           </tr>
         </tbody>
-      </Table><div >
+      </Table>
+      <div >
         {categories.filter(category => {
           let categoryNotes = noteList.filter(note => note.category === category);
           return categoryNotes.length > 1;
@@ -230,8 +236,8 @@ const App: FC = () => {
           .map((category: string, key: number) => {
             return (
               <ArchivedNotes
-                category={category}
-                noteList={noteList} />
+                category = {category}
+                noteList = {noteList} />
             )
           })}
       </div>
